@@ -4,22 +4,16 @@ import (
 	"fmt"
 	immich "immich_album_notifier/internal/api"
 	"immich_album_notifier/internal/telegram"
-	"log"
 	"log/slog"
 	"net/http"
 	"os"
 
-	"github.com/joho/godotenv"
+	_ "github.com/joho/godotenv/autoload"
 	"github.com/robfig/cron/v3"
 )
 
 func main() {
 	slog.Info("immich album notifier running")
-
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Error loading .env file")
-	}
 
 	telegram.Init()
 	api := immich.InitImmichClient(os.Getenv("IMMICH_API_KEY"), os.Getenv("IMMICH_ENDPOINT"))
@@ -45,7 +39,7 @@ func main() {
 	}
 
 	slog.Info("server running", slog.String("port", port))
-	err = http.ListenAndServe(fmt.Sprintf("0.0.0.0:%s", port), nil)
+	err := http.ListenAndServe(fmt.Sprintf("0.0.0.0:%s", port), nil)
 	if err != nil {
 		panic(err)
 	}

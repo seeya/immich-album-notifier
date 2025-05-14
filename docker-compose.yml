@@ -1,0 +1,6 @@
+services:
+  immich_album_notifier:
+    container_name: immich_album_notifier
+    image: bizkits/immich-album-notifier:latest
+    env_file: ./.env
+    restart: unless-stopped
