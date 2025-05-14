@@ -108,7 +108,7 @@ func (c *ImmichClient) GetAllAlbums() *[]Album {
 	// }
 
 	// cache the results
-	err = os.WriteFile("./cache.json", body, 0600)
+	err = os.WriteFile("./cache.json", body, 0666)
 	if err != nil {
 		slog.Error(err.Error())
 		return nil

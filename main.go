@@ -33,6 +33,8 @@ func main() {
 
 	c.Start()
 
+	go job(api)
+
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "8080"

@@ -17,7 +17,9 @@ RUN adduser -D -g '' appuser
 WORKDIR /app
 COPY --from=builder /app/app .
 
+RUN chown -R appuser /app
 USER appuser
+
 EXPOSE 8080
 
 ENTRYPOINT ["./app"]
