@@ -1,0 +1,36 @@
+# Binaries
+/app
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binaries
+*.test
+
+# Output folders
+bin/
+build/
+dist/
+
+# Vendor directory (optional, if you don’t use vendoring)
+vendor/
+
+# Go workspace files
+*.log
+*.out
+
+# IDE/editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Git
+.git
+.gitignore
